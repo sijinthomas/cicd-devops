@@ -24,7 +24,7 @@ jobs:
 
       - name: Copy files to repository
         run: |
-          cp -R /home/runner/work/cicd-devops/cicd-devopsy/* cicd-devops/
+          cp -R /home/runner/work/cicd-devops/cicd-devops/* cicd-devops/
 
       - name: Commit and push changes
         run: |
