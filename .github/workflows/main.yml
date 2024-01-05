@@ -1,5 +1,4 @@
 name: OpenVPN Installation
-
 on:
    workflow_dispatch:
    
