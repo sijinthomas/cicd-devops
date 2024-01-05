@@ -7,6 +7,9 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name : Install VPN
         run : |
           sudo apt install apt-transport-https
@@ -18,3 +21,16 @@ jobs:
           pwd
           cd /home/runner/work/cicd-devops/cicd-devops
           ls
+
+      - name: Copy files to repository
+        run: |
+          cp -R /home/runner/work/cicd-devops/cicd-devopsy/* cicd-devops/
+
+      - name: Commit and push changes
+        run: |
+           cd cicd-devops
+           git config --global user.email "sijinthomaspalliyady@gmail.com"
+           git config --global user.name "Sijin Thomas"
+           git add .
+           git commit -m "Copy artifacts from GitHub Actions"
+           git push
