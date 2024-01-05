@@ -16,3 +16,5 @@ jobs:
           sudo apt update
           sudo apt install openvpn3
           pwd
+          cd /home/runner/work/cicd-devops/cicd-devops
+          ls
