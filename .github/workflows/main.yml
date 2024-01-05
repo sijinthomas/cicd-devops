@@ -22,6 +22,10 @@ jobs:
           cd /home/runner/work/cicd-devops/cicd-devops
           ls
 
+      - name : Create Directory
+         run: |
+           mkdir -p cicd-devops
+
       - name: Copy files to repository
         run: |
           cp -R /home/runner/work/cicd-devops/cicd-devops/* cicd-devops/
