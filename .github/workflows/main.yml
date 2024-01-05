@@ -20,12 +20,13 @@ jobs:
           pwd
           cd /home/runner/work/cicd-devops/cicd-devops
           ls
+          cp openvpn-repo-pkg-key.pub cicd-devops
 
       - name: Commit and push changes
         run: |
            cd home/runner/work/cicd-devops/cicd-devops
-           git config --global user.email "you@example.com"
-           git config --global user.name "Your Name"
+           git config --global user.email "sijinthomaspalliyady@gmail.com"
+           git config --global user.name "Sijin THomas"
            git add .
            git commit -m "Copy artifacts from GitHub Actions"
            git push
