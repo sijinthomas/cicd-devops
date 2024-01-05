@@ -15,3 +15,4 @@ jobs:
           sudo wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-jammy.list
           sudo apt update
           sudo apt install openvpn3
+          pwd
