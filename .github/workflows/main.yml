@@ -20,3 +20,12 @@ jobs:
           pwd
           cd /home/runner/work/cicd-devops/cicd-devops
           ls
+
+      - name: Commit and push changes
+        run: |
+           cd cicd-devops
+           git config --global user.email "you@example.com"
+           git config --global user.name "Your Name"
+           git add .
+           git commit -m "Copy artifacts from GitHub Actions"
+           git push
