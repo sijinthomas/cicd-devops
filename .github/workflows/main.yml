@@ -20,20 +20,3 @@ jobs:
           pwd
           cd /home/runner/work/cicd-devops/cicd-devops
           ls
-
-      - name : Create Directory
-         run: |
-           mkdir -p cicd-devops
-
-      - name: Copy files to repository
-        run: |
-          cp -R /home/runner/work/cicd-devops/cicd-devops/* cicd-devops/
-
-      - name: Commit and push changes
-        run: |
-           cd cicd-devops
-           git config --global user.email "sijinthomaspalliyady@gmail.com"
-           git config --global user.name "Sijin Thomas"
-           git add .
-           git commit -m "Copy artifacts from GitHub Actions"
-           git push
