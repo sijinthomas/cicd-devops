@@ -21,4 +21,7 @@ jobs:
     - name: Verify installation
       run: |
         # Add any verification steps here, for example:
-        sudo openvpn --version  # Replace with the actual command to check the installed version
+        # sudo openvpn --version  # Replace with the actual command to check the installed version
+        sudo dpkg -l | grep openvpn
+        sudo /usr/sbin/openvpn --version
+
