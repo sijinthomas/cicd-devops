@@ -1,4 +1,5 @@
 name: OpenVPN Installation
+
 on:
   workflow_dispatch:
 
@@ -14,14 +15,26 @@ jobs:
       run: |
         # Replace 'your-package-name.deb' with the actual name of your .deb file
         # sudo apt install libpkcs11-helper1
-        sudo dpkg -I openvpn_2.4.12-0ubuntu0.20.04.1_amd64.deb
+        sudo dpkg -i openvpn_2.4.12-0ubuntu0.20.04.1_amd64.deb
         sudo apt-get install -f  # Install dependencies
         sudo apt-get check
-    
-    - name: Verify installation
-      run: |
-        # Add any verification steps here, for example:
-        # sudo openvpn --version  # Replace with the actual command to check the installed version
-        sudo dpkg -l | grep openvpn
-        sudo /usr/sbin/openvpn --version
 
+    - name: Verify Installation
+      run: |
+        # Verify OpenVPN installation
+        if ! command -v openvpn &> /dev/null
+        then
+            echo "OpenVPN is not installed"
+            exit 1
+        fi
+
+        # Check OpenVPN version
+        openvpn --version
+
+        # Check OpenVPN service status
+        sudo systemctl status openvpn
+
+        # Check network interfaces
+        ifconfig
+
+        # Add any other verification steps as needed
